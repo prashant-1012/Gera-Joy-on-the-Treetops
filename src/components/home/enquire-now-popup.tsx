@@ -142,7 +142,7 @@ export function EnquireNowPopup({ isOpen, onOpenChange }: EnquireNowPopupProps) 
                 src="/images/logo.png"
                 alt="Gera's Joy on the Treetops Logo"
                 width={180}
-                height={62}
+                height={73}
                 className="object-contain"
               />
               <p className="text-xs text-muted-foreground mt-2 text-center">

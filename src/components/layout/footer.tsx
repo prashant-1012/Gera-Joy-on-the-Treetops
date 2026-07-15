@@ -13,7 +13,7 @@ export function Footer() {
             src="/images/logo.png"
             alt="Gera's Joy on the Treetops Logo"
             width={160}
-            height={56}
+            height={65}
             className="object-contain brightness-0 invert"
           />
         </div>

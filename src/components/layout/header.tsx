@@ -73,8 +73,8 @@ export function Header({ onOpenEnquirePopup }: HeaderProps) {
             <Image
               src="/images/logo.png"
               alt="Gera's Joy on the Treetops Logo"
-              width={160}
-              height={56}
+              width={109}
+              height={44}
               priority
               className="object-contain"
             />
