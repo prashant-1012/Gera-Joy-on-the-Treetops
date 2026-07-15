@@ -18,22 +18,21 @@ export default function Home() {
   const [showEnquirePopup, setShowEnquirePopup] = useState(false);
   const [initialPopupTriggered, setInitialPopupTriggered] = useState(false);
 
-  const recurringTimerRef = useRef<NodeJS.Timeout | null>(null);
   const initialDelayTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const triggerPopup = () => {
     if (initialDelayTimerRef.current) {
-      clearTimeout(initialDelayTimerRef.current); 
+      clearTimeout(initialDelayTimerRef.current);
       initialDelayTimerRef.current = null;
     }
     setShowEnquirePopup(true);
     if (!initialPopupTriggered) {
-      setInitialPopupTriggered(true); 
+      setInitialPopupTriggered(true);
     }
   };
 
   useEffect(() => {
-    if (!initialPopupTriggered && !showEnquirePopup) { 
+    if (!initialPopupTriggered && !showEnquirePopup) {
       initialDelayTimerRef.current = setTimeout(() => {
         triggerPopup();
       }, 3000);
@@ -44,26 +43,7 @@ export default function Home() {
       }
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); 
-
-  useEffect(() => {
-    if (recurringTimerRef.current) {
-      clearInterval(recurringTimerRef.current);
-      recurringTimerRef.current = null;
-    }
-
-    if (initialPopupTriggered && !showEnquirePopup) {
-      recurringTimerRef.current = setInterval(() => {
-        setShowEnquirePopup(true); 
-      }, 25000); 
-    }
-
-    return () => {
-      if (recurringTimerRef.current) {
-        clearInterval(recurringTimerRef.current);
-      }
-    };
-  }, [showEnquirePopup, initialPopupTriggered]);
+  }, []);
 
   const handlePopupOpenChange = (isOpen: boolean) => {
     setShowEnquirePopup(isOpen);

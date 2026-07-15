@@ -4,8 +4,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { WhatsAppButton } from '@/components/common/whatsapp-button';
 
 export const metadata: Metadata = {
-  title: 'Godrej Kukatpally, Hyderabad | Premium 3 & 4 BHK Homes',
-  description: 'Brooklyn-Inspired Sky Residences in Kukatpally, Hyderabad. Premium 3 & 4 BHK homes from ₹2.11 Cr*. Twin 45-storey towers, 72,000 Sq.Ft. clubhouse, near Metro & HITEC City.',
+  title: "Gera's Joy on the Treetops, Hinjewadi Pune | Premium 2 & 3 BHK Homes",
+  description: "Gera's Joy on the Treetops at Hinjewadi, Pune. Premium 2 & 3 BHK apartments and duplexes from ₹79.90 Lacs*. On-site electric go-kart track, 9 celebrity-led academies, 35,000+ Sq.Ft. clubhouse, near upcoming Metro.",
 };
 
 export default function RootLayout({

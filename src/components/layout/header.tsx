@@ -4,7 +4,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { Home, LayoutDashboard, Wifi, MapPin, Images, Info, Menu } from 'lucide-react';
+import { Home, LayoutDashboard, Wifi, MapPin, Images, Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from '@/components/ui/sheet';
@@ -12,10 +12,9 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose 
 const navLinksConfig = [
   { href: '/#overview', label: 'Overview', icon: Home },
   { href: '/#floor-plan', label: 'Floor Plan & Pricing', icon: LayoutDashboard },
-  { href: '/#amenities', label: 'Amenities', icon: Wifi },
   { href: '/#location', label: 'Location', icon: MapPin },
+  { href: '/#amenities', label: 'Amenities', icon: Wifi },
   { href: '/#gallery', label: 'Gallery', icon: Images },
-  { href: '/#about', label: 'About Us', icon: Info },
 ];
 
 interface HeaderProps {
@@ -73,7 +72,7 @@ export function Header({ onOpenEnquirePopup }: HeaderProps) {
           <Link href="/" className="flex items-center shrink-0" onClick={() => handleNavLinkClick('Overview')}>
             <Image
               src="/images/logo.png"
-              alt="Godrej Kukatpally Logo"
+              alt="Gera's Joy on the Treetops Logo"
               width={160}
               height={56}
               priority
@@ -117,7 +116,7 @@ export function Header({ onOpenEnquirePopup }: HeaderProps) {
               onClick={onOpenEnquirePopup}
               className="bg-custom-gold hover:bg-custom-gold/90 text-primary-foreground rounded-md px-5 py-2 text-sm shadow-md transform transition-transform hover:scale-105"
             >
-              Enquire Now
+              Book A Visit
             </Button>
           </div>
           
@@ -128,7 +127,7 @@ export function Header({ onOpenEnquirePopup }: HeaderProps) {
                 size="sm"
                 className="bg-custom-gold hover:bg-custom-gold/90 text-primary-foreground rounded-md px-3 py-1.5 text-xs shadow-md"
               >
-                Enquire Now
+                Book A Visit
               </Button>
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>

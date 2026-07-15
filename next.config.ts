@@ -6,7 +6,11 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  experimental: {
+    turbopackFileSystemCacheForDev: false,
+  },
   images: {
+    qualities: [75, 85],
     remotePatterns: [
       {
         protocol: 'https',

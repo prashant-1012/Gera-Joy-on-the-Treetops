@@ -7,25 +7,32 @@ import { Lock, IndianRupee } from 'lucide-react';
 
 const floorPlans = [
   {
-    config: '3 BHK Premium',
-    area: '1600–1900 Sq. Ft.',
-    price: '2.11 Cr*',
-    image: '/images/floorplan-3bhk-premium.png',
-    alt: '3 BHK Premium floor plan — Godrej Kukatpally',
+    config: '2 BHK',
+    area: '691–868 Sq. Ft.',
+    price: '79.90 Lacs Onwards*',
+    image: '/images/floorplan-2bhk.png',
+    alt: "2 BHK floor plan — Gera's Joy on the Treetops",
   },
   {
-    config: '3 BHK Luxe',
-    area: '2000–2100 Sq. Ft.',
-    price: '2.75 Cr*',
-    image: '/images/floorplan-3bhk-luxe.png',
-    alt: '3 BHK Luxe floor plan — Godrej Kukatpally',
+    config: '3 BHK',
+    area: '1011–1237 Sq. Ft.',
+    price: '1.19 Cr Onwards*',
+    image: '/images/floorplan-3bhk.png',
+    alt: "3 BHK floor plan — Gera's Joy on the Treetops",
   },
   {
-    config: '4 BHK + Maid',
-    area: '3200 Sq. Ft.',
-    price: '4.40 Cr*',
-    image: '/images/floorplan-4bhk-maid.png',
-    alt: '4 BHK + Maid floor plan — Godrej Kukatpally',
+    config: '2 BHK Duplex',
+    area: '898 Sq. Ft.',
+    price: '1.07 Cr All Inc.*',
+    image: '/images/floorplan-2bhk-duplex.png',
+    alt: "2 BHK Duplex floor plan — Gera's Joy on the Treetops",
+  },
+  {
+    config: '3 BHK Duplex',
+    area: '1218 Sq. Ft.',
+    price: '1.54 Cr All Inc.*',
+    image: '/images/floorplan-3bhk-duplex.png',
+    alt: "3 BHK Duplex floor plan — Gera's Joy on the Treetops",
   },
 ];
 
@@ -40,19 +47,19 @@ export function FloorPlanSection({ onOpenEnquirePopup }: FloorPlanSectionProps) 
 
         {/* Heading */}
         <h2 className="font-headline text-3xl sm:text-4xl font-bold text-primary text-center mb-3 animate-in fade-in slide-in-from-bottom-6 duration-500 ease-out">
-          Godrej Kukatpally Floor Plan & Pricing
+          Gera's Joy On The Treetops Floor Plan & Pricing
         </h2>
         <div className="h-1 w-20 bg-custom-gold mx-auto mb-12 animate-in fade-in slide-in-from-bottom-6 duration-500 ease-out delay-100" />
 
         {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {floorPlans.map((plan, index) => (
             <div
               key={plan.config}
-              className="animate-in fade-in slide-in-from-bottom-8 duration-500 ease-out"
+              className="h-full animate-in fade-in slide-in-from-bottom-8 duration-500 ease-out"
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              <div className="bg-card rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden flex flex-col">
+              <div className="h-full bg-card rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden flex flex-col">
 
                 {/* Blurred image — click to open popup */}
                 <div
@@ -65,6 +72,7 @@ export function FloorPlanSection({ onOpenEnquirePopup }: FloorPlanSectionProps) 
                     src={plan.image}
                     alt={plan.alt}
                     fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
                     className="object-cover scale-110 blur-sm transition-all duration-300 group-hover:blur-md"
                   />
                   {/* Overlay */}
@@ -82,8 +90,8 @@ export function FloorPlanSection({ onOpenEnquirePopup }: FloorPlanSectionProps) 
                 <div className="flex flex-col items-center text-center p-6 flex-grow">
                   <h3 className="text-xl font-bold text-primary mb-1">{plan.config}</h3>
                   <p className="text-sm text-muted-foreground mb-3">{plan.area}</p>
-                  <p className="text-3xl font-bold text-custom-gold mb-6 flex items-center justify-center">
-                    <IndianRupee className="h-7 w-7 mr-0.5 shrink-0" />
+                  <p className="text-xl sm:text-2xl font-bold text-custom-gold mb-6 flex items-center justify-center text-center">
+                    <IndianRupee className="h-5 w-5 sm:h-6 sm:w-6 mr-0.5 shrink-0" />
                     {plan.price}
                   </p>
                   <Button

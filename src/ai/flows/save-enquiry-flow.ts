@@ -17,6 +17,7 @@ const SaveEnquiryInputSchema = z.object({
   name: z.string().min(1, {message: 'Name is required.'}),
   email: z.string().email({message: 'Invalid email address.'}),
   phoneNumber: z.string().min(10, {message: 'Phone number is required and should be at least 10 digits.'}),
+  configuration: z.string().min(1, {message: 'Configuration is required.'}),
   submissionTimestamp: z.string().datetime(),
 });
 export type SaveEnquiryInput = z.infer<typeof SaveEnquiryInputSchema>;
@@ -58,6 +59,7 @@ const saveEnquiryToSheetFlow = ai.defineFlow(
         input.name,
         input.email,
         input.phoneNumber,
+        input.configuration,
         "true", // Consent is now implicit
       ];
 

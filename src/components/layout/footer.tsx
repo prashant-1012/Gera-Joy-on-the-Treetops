@@ -11,7 +11,7 @@ export function Footer() {
         <div className="flex justify-center items-center mb-6">
           <Image
             src="/images/logo.png"
-            alt="Godrej Kukatpally Logo"
+            alt="Gera's Joy on the Treetops Logo"
             width={160}
             height={56}
             className="object-contain brightness-0 invert"
@@ -25,15 +25,15 @@ export function Footer() {
         <div className="mb-6 text-xs text-primary-foreground/75 max-w-3xl mx-auto leading-relaxed">
           <p>
             <span className="font-semibold text-primary-foreground">Disclaimer:</span> This is an informational website owned and managed by{' '}
-            <span className="font-semibold text-primary-foreground">Prop Mission Private Limited</span>, an authorized channel partner registered under RERA ID: [TBD]. This is not the official website of the developer. All images, floor plans, and project details are for representational purposes only and may be subject to change. All trademarks and project information belong to their respective owners.
+            <span className="font-semibold text-primary-foreground">Fusion Ace</span>, an authorized channel partner registered under RERA ID: [TBD]. This is not the official website of the developer. All images, floor plans, and project details are for representational purposes only and may be subject to change. All trademarks and project information belong to their respective owners.
           </p>
         </div>
 
         {/* RERA Info */}
         <div className="mb-6 text-xs text-primary-foreground/75 font-semibold space-y-1.5">
-          <p>RERA No: Coming Soon &nbsp;|&nbsp; Project RERA No. – Coming Soon</p>
+          <p>RERA No: Coming Soon &nbsp;|&nbsp; Project MahaRERA No. – P52100077635 &amp; PR1261012501648</p>
           <p>
-            <span className="text-custom-gold">https://rera.telangana.gov.in</span>
+            <span className="text-custom-gold">https://maharera.maharashtra.gov.in</span>
           </p>
         </div>
 
@@ -61,7 +61,7 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="text-xs text-primary-foreground/50">
-          <p>All Rights Reserved. &copy; 2026 Godrej Kukatpally</p>
+          <p>All Rights Reserved. &copy; 2026 Gera's Joy on the Treetops</p>
         </div>
 
       </div>

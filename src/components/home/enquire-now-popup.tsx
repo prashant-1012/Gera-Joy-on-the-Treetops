@@ -26,9 +26,10 @@ const countryCodes = [
 ];
 
 const configurations = [
-  { value: '3bhk-premium', label: '3 BHK Premium - 2.11 CR*' },
-  { value: '3bhk-luxe',    label: '3 BHK Luxe - 2.75 CR*' },
-  { value: '4bhk-maid',   label: '4 BHK + Maid - 4.40 CR*' },
+  { value: '2bhk',        label: '2 BHK - ₹79.90 Lacs Onwards*' },
+  { value: '3bhk',        label: '3 BHK - ₹1.19 Cr Onwards*' },
+  { value: '2bhk-duplex', label: '2 BHK Duplex - ₹1.07 Cr*' },
+  { value: '3bhk-duplex', label: '3 BHK Duplex - ₹1.54 Cr*' },
 ];
 
 interface EnquireNowPopupProps {
@@ -57,13 +58,16 @@ export function EnquireNowPopup({ isOpen, onOpenChange }: EnquireNowPopupProps) 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!consent) return;
+    if (!consent || !configuration) return;
     setIsSubmitting(true);
+
+    const configurationLabel = configurations.find((c) => c.value === configuration)?.label ?? configuration;
 
     const enquiryData: SaveEnquiryInput = {
       name,
       email,
       phoneNumber: `${countryCode} ${phoneNumber}`,
+      configuration: configurationLabel,
       submissionTimestamp: new Date().toISOString(),
     };
 
@@ -136,18 +140,18 @@ export function EnquireNowPopup({ isOpen, onOpenChange }: EnquireNowPopupProps) 
             <div className="flex flex-col items-center mb-4">
               <Image
                 src="/images/logo.png"
-                alt="Godrej Kukatpally Logo"
+                alt="Gera's Joy on the Treetops Logo"
                 width={180}
                 height={62}
                 className="object-contain"
               />
               <p className="text-xs text-muted-foreground mt-2 text-center">
-                Presented by <span className="font-semibold text-foreground">Prop Mission Private Limited</span> – Authorized Channel Partner of Godrej Properties
+                Presented by <span className="font-semibold text-foreground">Fusion Ace</span> – Authorized Channel Partner of Gera Developments
               </p>
             </div>
 
             <DialogHeader className="text-center mb-5">
-              <DialogTitle className="text-xl sm:text-2xl font-bold text-custom-gold">Enquire Now!</DialogTitle>
+              <DialogTitle className="text-xl sm:text-2xl font-bold text-custom-gold">Book Your Site Visit</DialogTitle>
               <div className="w-12 h-0.5 bg-custom-gold mx-auto mt-1" />
             </DialogHeader>
 
@@ -229,7 +233,7 @@ export function EnquireNowPopup({ isOpen, onOpenChange }: EnquireNowPopupProps) 
                   <a href="/privacy-policy" target="_blank" className="underline text-foreground hover:text-custom-gold">Privacy Policy</a>
                   {' '}and{' '}
                   <a href="/terms-of-use" target="_blank" className="underline text-foreground hover:text-custom-gold">Terms & Conditions</a>
-                  {' '}and consent to be contacted by Prop Mission Private Limited via Phone/WhatsApp regarding this property.
+                  {' '}and consent to be contacted by Fusion Ace via Phone/WhatsApp regarding this property.
                 </Label>
               </div>
 
@@ -237,7 +241,7 @@ export function EnquireNowPopup({ isOpen, onOpenChange }: EnquireNowPopupProps) 
               <Button
                 type="submit"
                 className="w-full bg-custom-gold hover:bg-custom-gold/90 text-primary-foreground h-11 text-sm shadow-md"
-                disabled={isSubmitting || !consent}
+                disabled={isSubmitting || !consent || !configuration}
               >
                 {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                 {isSubmitting ? 'Submitting...' : 'Submit'}

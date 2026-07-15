@@ -19,18 +19,18 @@ interface Amenity {
 const amenities: Amenity[] = [
   {
     id: '1',
+    name: 'Co-Working Space',
+    imageSrc: '/images/amenity-coworking.png',
+  },
+  {
+    id: '2',
     name: 'Gym',
     imageSrc: '/images/amenity-gym.png',
   },
   {
-    id: '2',
-    name: 'Swimming Pool',
-    imageSrc: '/images/amenity-pool.png',
-  },
-  {
     id: '3',
-    name: 'Clubhouse',
-    imageSrc: '/images/clubhouse.png',
+    name: 'Mini Theatre',
+    imageSrc: '/images/amenity-minitheatre.png',
   },
   {
     id: '4',
@@ -39,13 +39,28 @@ const amenities: Amenity[] = [
   },
   {
     id: '5',
-    name: 'Jogging Track',
-    imageSrc: '/images/jogging track.png',
+    name: 'Electric Go-Kart Racing Track',
+    imageSrc: '/images/amenity-gokart-track.png',
   },
   {
     id: '6',
-    name: 'Tennis Court',
-    imageSrc: '/images/tennis-track.png',
+    name: 'Bowling Alley',
+    imageSrc: '/images/amenity-bowling.png',
+  },
+  {
+    id: '7',
+    name: 'Indoor Badminton Court',
+    imageSrc: '/images/amenity-badminton.png',
+  },
+  {
+    id: '8',
+    name: 'Squash Court',
+    imageSrc: '/images/amenity-squash.png',
+  },
+  {
+    id: '9',
+    name: 'Music & Art Room',
+    imageSrc: '/images/amenity-music-art.png',
   },
 ];
 
@@ -54,7 +69,7 @@ export function AmenitiesSection() {
     <section id="amenities" className="py-16 sm:py-24 bg-background overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 animate-in fade-in duration-500 ease-out">
         <h2 className="font-headline text-3xl sm:text-4xl font-bold text-primary text-center mb-3 animate-in fade-in slide-in-from-bottom-6 duration-500 ease-out">
-          Godrej Kukatpally, Hyderabad — Amenities
+          Gera's Joy On The Treetops Amenities
         </h2>
         <div className="h-1 w-20 bg-custom-gold mx-auto mb-12 animate-in fade-in slide-in-from-bottom-6 duration-500 ease-out delay-100" />
 
@@ -78,6 +93,7 @@ export function AmenitiesSection() {
                         src={amenity.imageSrc}
                         alt={amenity.name}
                         fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                         className="object-cover rounded-xl transition-transform duration-300 hover:scale-105"
                       />
                       {/* Amenity label */}
@@ -95,7 +111,7 @@ export function AmenitiesSection() {
         </Carousel>
 
         <p className="text-center text-muted-foreground font-body text-base sm:text-lg mt-12 animate-in fade-in slide-in-from-bottom-6 duration-500 ease-out delay-300">
-          72,000 Sq. Ft. Grand Clubhouse with world-class amenities designed for your comfort and leisure.
+          35,000+ Sq. Ft. Grand Clubhouse with world-class amenities designed for your comfort and leisure.
         </p>
       </div>
     </section>
