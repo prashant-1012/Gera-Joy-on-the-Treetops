@@ -68,10 +68,8 @@ export default function Home() {
         <HeroSection onOpenEnquirePopup={openEnquirePopup} />
         <ProjectOverviewSection onOpenEnquirePopup={openEnquirePopup} />
         <FloorPlanSection onOpenEnquirePopup={openEnquirePopup} />
-
-        <AmenitiesSection />
-
         <LocationTabsSection onOpenEnquirePopup={openEnquirePopup} />
+        <AmenitiesSection />
         <GallerySection />
         <AboutSection />
 
