@@ -26,10 +26,10 @@ const countryCodes = [
 ];
 
 const configurations = [
-  { value: '2bhk',        label: '2 BHK - ₹79.90 Lacs Onwards*' },
-  { value: '3bhk',        label: '3 BHK - ₹1.19 Cr Onwards*' },
-  { value: '2bhk-duplex', label: '2 BHK Duplex - ₹1.07 Cr*' },
-  { value: '3bhk-duplex', label: '3 BHK Duplex - ₹1.54 Cr*' },
+  { value: '2bhk',        name: '2 BHK',        price: '79.90 Lacs Onwards*' },
+  { value: '3bhk',        name: '3 BHK',        price: '1.19 Cr Onwards*' },
+  { value: '2bhk-duplex', name: '2 BHK Duplex', price: '1.07 Cr*' },
+  { value: '3bhk-duplex', name: '3 BHK Duplex', price: '1.54 Cr*' },
 ];
 
 interface EnquireNowPopupProps {
@@ -61,7 +61,8 @@ export function EnquireNowPopup({ isOpen, onOpenChange }: EnquireNowPopupProps) 
     if (!consent || !configuration) return;
     setIsSubmitting(true);
 
-    const configurationLabel = configurations.find((c) => c.value === configuration)?.label ?? configuration;
+    const selectedConfig = configurations.find((c) => c.value === configuration);
+    const configurationLabel = selectedConfig ? `${selectedConfig.name} - Rs. ${selectedConfig.price}` : configuration;
 
     const enquiryData: SaveEnquiryInput = {
       name,
@@ -211,9 +212,11 @@ export function EnquireNowPopup({ isOpen, onOpenChange }: EnquireNowPopupProps) 
                   <SelectValue placeholder="Configuration Interested In" />
                 </SelectTrigger>
                 <SelectContent>
-                  {configurations.map(({ value, label }) => (
+                  {configurations.map(({ value, name, price }) => (
                     <SelectItem key={value} value={value}>
-                      {label}
+                      <span className="inline-flex items-center">
+                        {name} - <IndianRupee className="h-3 w-3 mx-0.5 shrink-0" />{price}
+                      </span>
                     </SelectItem>
                   ))}
                 </SelectContent>
