@@ -29,7 +29,7 @@ export default function AboutUsContent() {
 
             <div className="mt-8 p-4 bg-primary/5 border border-primary/10 rounded-lg text-sm text-foreground/75">
               <p><span className="font-semibold text-primary">Fusion Ace</span> — Authorized Channel Partner of Gera Developments</p>
-              <p className="mt-1">For enquiries: <span className="italic">[Contact details pending client input — see Open Questions in docs/progress.md]</span></p>
+              {/* <p className="mt-1">For enquiries: <span className="italic">[Contact details pending client input — see Open Questions in docs/progress.md]</span></p> */}
             </div>
 
           </div>

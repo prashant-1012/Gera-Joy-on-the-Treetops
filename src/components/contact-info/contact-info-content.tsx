@@ -19,9 +19,9 @@ export default function ContactInfoContent() {
 
             <p>Get in touch with us for any enquiries about <span className="font-semibold text-primary">Gera's Joy on the Treetops, Hinjewadi, Pune</span>.</p>
 
-            <div className="mt-8 italic text-foreground/60">
+            {/* <div className="mt-8 italic text-foreground/60">
               [Contact details pending client input — see Open Questions in docs/progress.md]
-            </div>
+            </div> */}
 
             <p className="mt-8 text-foreground/60 text-sm">
               Fusion Ace — Authorized Channel Partner of Gera Developments
