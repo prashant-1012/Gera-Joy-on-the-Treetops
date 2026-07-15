@@ -1,0 +1,164 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  /* Firefox specific scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--custom-gold)) hsl(var(--border) / 0.3); /* thumb (custom-gold) and track */
+}
+
+.dark html {
+  scrollbar-color: hsl(var(--custom-gold)) hsl(var(--border) / 0.3); /* thumb (custom-gold) and track for dark mode */
+}
+
+body {
+  font-family: 'PT Sans', sans-serif; /* Default body font */
+}
+
+@layer base {
+  :root {
+    --background: 230 50% 94%; /* #E8EAF6 - Very light blue-gray */
+    --foreground: 233 60% 20%; /* Darker text for contrast */
+
+    --card: 0 0% 100%; /* White cards for clear separation */
+    --card-foreground: 233 60% 20%; /* Same as main foreground */
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 233 60% 20%;
+
+    --primary: 233 64% 30%; /* #1A237E - Dark navy blue */
+    --primary-foreground: 230 50% 96%; /* Light text on dark primary */
+
+    --secondary: 230 40% 88%; /* Lighter than background, more subtle */
+    --secondary-foreground: 233 55% 25%;
+
+    --muted: 230 35% 80%;
+    --muted-foreground: 230 25% 45%;
+
+    --accent: 230 52% 48%; /* #3F51B5 - Indigo */
+    --accent-foreground: 230 50% 98%; /* Light text on accent */
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 230 30% 85%; /* Adjusted border color */
+    --input: 230 30% 88%; /* Adjusted input background */
+    --ring: 230 52% 48%; /* Accent for ring */
+
+    --custom-gold: 40 50% 40%; /* #997326 - Dark mustard */
+
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+
+    /* Sidebar specific colors, may not be heavily used but good to keep consistent */
+    --sidebar-background: 230 50% 96%; /* Slightly off-white, similar to background */
+    --sidebar-foreground: 233 60% 25%;
+    --sidebar-primary: 233 64% 30%;
+    --sidebar-primary-foreground: 230 50% 96%;
+    --sidebar-accent: 230 52% 48%;
+    --sidebar-accent-foreground: 230 50% 98%;
+    --sidebar-border: 230 30% 80%;
+    --sidebar-ring: 230 52% 48%;
+  }
+
+  .dark {
+    /* Dark theme not specified, but keeping structure. Using inverted/darker versions as placeholders. */
+    --background: 233 60% 10%;
+    --foreground: 230 50% 94%;
+
+    --card: 233 60% 15%;
+    --card-foreground: 230 50% 94%;
+
+    --popover: 233 60% 15%;
+    --popover-foreground: 230 50% 94%;
+
+    --primary: 230 50% 96%;
+    --primary-foreground: 233 64% 30%;
+
+    --secondary: 233 50% 25%;
+    --secondary-foreground: 230 50% 94%;
+
+    --muted: 233 40% 30%;
+    --muted-foreground: 230 30% 70%;
+
+    --accent: 230 52% 55%;
+    --accent-foreground: 233 60% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 233 50% 25%;
+    --input: 233 50% 25%;
+    --ring: 230 52% 55%;
+    
+    --custom-gold: 40 50% 45%; /* Adjusted dark mustard for dark theme */
+
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+
+    --sidebar-background: 233 60% 12%;
+    --sidebar-foreground: 230 50% 92%;
+    --sidebar-primary: 230 50% 96%;
+    --sidebar-primary-foreground: 233 64% 28%;
+    --sidebar-accent: 230 52% 53%;
+    --sidebar-accent-foreground: 233 60% 8%;
+    --sidebar-border: 233 50% 23%;
+    --sidebar-ring: 230 52% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Webkit scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the vertical scrollbar */
+  height: 8px; /* Height of the horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--border) / 0.2); /* Slightly transparent border color for the track */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--custom-gold)); /* Custom gold color for the thumb */
+  border-radius: 10px;
+  border: 1px solid hsl(var(--background) / 0.5); /* Creates a "padding" effect with semi-transparent background */
+  transition: background-color 0.2s ease-in-out; /* Smooth transition for hover effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--accent)); /* Accent color on hover for visual feedback */
+}
+
+/* Dark theme specific Webkit scrollbar styles */
+.dark ::-webkit-scrollbar-track {
+  background: hsl(var(--border) / 0.2); /* Consistent with light theme, or adjust if needed */
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--custom-gold)); /* Custom gold color for the thumb in dark mode */
+  border: 1px solid hsl(var(--background) / 0.5); /* Border color for dark mode */
+  transition: background-color 0.2s ease-in-out; /* Smooth transition for hover effect */
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--accent)); /* Accent color on hover for dark mode */
+}
