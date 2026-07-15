@@ -1,26 +1,26 @@
 
-import { Award, Building2, MapPin, Leaf } from 'lucide-react';
+import { Award, Building2, MapPin, Sparkles } from 'lucide-react';
 
 const stats = [
   {
     icon: Building2,
-    value: '127+',
-    label: 'Years of Godrej Legacy',
+    value: '50+',
+    label: 'Years of Legacy',
   },
   {
     icon: Award,
-    value: 'Est. 1990',
-    label: 'Godrej Properties Founded',
+    value: 'Est. 1970',
+    label: 'Gera Developments Founded',
   },
   {
     icon: MapPin,
-    value: 'Pan-India',
+    value: 'Pune, Goa, Bangalore',
     label: 'Presence Across Major Cities',
   },
   {
-    icon: Leaf,
-    value: 'Good & Green',
-    label: 'Sustainability Vision',
+    icon: Sparkles,
+    value: "Let's Outdo",
+    label: 'Company Philosophy',
   },
 ];
 
@@ -32,7 +32,7 @@ export function AboutSection() {
         {/* Heading */}
         <div className="text-center mb-12 animate-in fade-in slide-in-from-bottom-6 duration-500 ease-out">
           <h2 className="font-headline text-3xl sm:text-4xl font-bold text-primary">
-            About Godrej Properties
+            About Gera Developments
           </h2>
           <div className="mt-3 h-1 w-20 bg-custom-gold mx-auto" />
         </div>
@@ -56,13 +56,13 @@ export function AboutSection() {
         {/* Body text */}
         <div className="max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-6 duration-500 ease-out delay-200">
           <p className="text-base sm:text-lg text-foreground/90 leading-relaxed mb-5">
-            Godrej Properties Limited is the real estate arm of the 127-year-old Godrej Group, one of India's most trusted and diversified conglomerates. Established in 1990 and headquartered in Mumbai, the company has successfully translated its parent group's philosophy of innovation, sustainability, and excellence into the real estate sector.
+            Founded in 1970, Gera Developments develops premium residential and commercial projects. The company has established a strong presence in Pune, Goa, and Bangalore with landmark projects.
           </p>
           <p className="text-base sm:text-lg text-foreground/90 leading-relaxed mb-5">
-            With a strong presence across major Indian cities, Godrej Properties is known for delivering high-quality residential and commercial developments that combine modern design with sustainable practices. The company has received numerous awards for its commitment to green building and cutting-edge architecture.
+            Gera Developments has introduced several firsts in the Indian real estate market, including a intelligent building, child-centric project. With over 50 years of experience, Gera Developments is driven by a future-focused vision and a <span className="font-semibold text-foreground">'Let's Outdo'</span> philosophy.
           </p>
           <p className="text-base sm:text-lg text-foreground/90 leading-relaxed">
-            Guided by its <span className="font-semibold text-foreground">'Good & Green'</span> vision, the brand focuses on eco-friendly development, energy efficiency, and community-centric living. Known for transparency, reliability, and a customer-first approach, Godrej Properties continues to create future-ready homes that offer long-term value and elevated lifestyles.
+            Built on trust, a customer-first approach, innovation, and uncompromising quality, we don't just build home, we create inspiring spaces that redefine modern living. By constantly pushing boundaries, we craft experiences that stand the test of time and shape the future of how we live.
           </p>
         </div>
 

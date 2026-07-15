@@ -18,20 +18,18 @@ export default function AboutUsContent() {
           <h1 className="font-headline text-3xl sm:text-4xl font-bold text-primary mb-8 text-center">About Us</h1>
           <div className="space-y-6 text-foreground/90 leading-relaxed text-sm sm:text-base">
 
-            <p>Welcome to <span className="font-semibold text-primary">Prop Mission Private Limited</span>, your trusted authorized channel partner for Godrej Kukatpally, Hyderabad.</p>
+            <p>Welcome to <span className="font-semibold text-primary">Fusion Ace</span>, your trusted authorized channel partner for Gera's Joy on the Treetops, Hinjewadi, Pune.</p>
 
             <p>Our mission is to provide exceptional service and guidance to help you find your dream home. We are dedicated to ensuring a seamless and transparent property buying experience — from your first enquiry to final possession.</p>
 
-            <h2 className="font-semibold text-xl text-primary mt-8 mb-3">About Godrej Properties</h2>
-            <p>Godrej Properties Limited is the real estate arm of the 127-year-old Godrej Group, one of India's most trusted and diversified conglomerates. Established in 1990 and headquartered in Mumbai, the company has successfully translated its parent group's philosophy of innovation, sustainability, and excellence into the real estate sector.</p>
+            <h2 className="font-semibold text-xl text-primary mt-8 mb-3">About Gera Developments</h2>
+            <p>Founded in 1970, Gera Developments develops premium residential and commercial projects. The company has established a strong presence in Pune, Goa, and Bangalore with landmark projects. Gera Developments has introduced several firsts in the Indian real estate market, including a intelligent building, child-centric project.</p>
 
-            <p>With a strong presence across major Indian cities, Godrej Properties is known for delivering high-quality residential and commercial developments that combine modern design with sustainable practices. The company has received numerous awards for its commitment to green building and cutting-edge architecture.</p>
-
-            <p>Guided by its 'Good &amp; Green' vision, the brand focuses on eco-friendly development, energy efficiency, and community-centric living. Known for transparency, reliability, and a customer-first approach, Godrej Properties continues to create future-ready homes that offer long-term value and elevated lifestyles.</p>
+            <p>With over 50 years of experience, Gera Developments is driven by a future-focused vision and a 'Let's Outdo' philosophy. Built on trust, a customer-first approach, innovation, and uncompromising quality, we don't just build home, we create inspiring spaces that redefine modern living. By constantly pushing boundaries, we craft experiences that stand the test of time and shape the future of how we live.</p>
 
             <div className="mt-8 p-4 bg-primary/5 border border-primary/10 rounded-lg text-sm text-foreground/75">
-              <p><span className="font-semibold text-primary">Prop Mission Private Limited</span> — Authorized Channel Partner of Godrej Properties</p>
-              <p className="mt-1">For enquiries: <a href="mailto:info@propmission.com" className="text-primary underline hover:text-custom-gold transition-colors">info@propmission.com</a></p>
+              <p><span className="font-semibold text-primary">Fusion Ace</span> — Authorized Channel Partner of Gera Developments</p>
+              <p className="mt-1">For enquiries: <span className="italic">[Contact details pending client input — see Open Questions in docs/progress.md]</span></p>
             </div>
 
           </div>

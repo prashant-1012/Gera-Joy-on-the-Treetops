@@ -1,6 +1,8 @@
 "use client";
 
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { cn } from '@/lib/utils';
 
 const WhatsAppIcon = () => (
     <svg
@@ -17,14 +19,33 @@ const WhatsAppIcon = () => (
 );
 
 export function WhatsAppButton() {
-  const whatsappLink = "https://wa.me/919999999999?text=Hi%20I%20am%20interested%20in%20your%20Godrej%20Kukatpally%20project%2C%20Please%20share%20details.";
+  // NOTE: phone number is still the placeholder 9999999999 — needs Fusion Ace's real WhatsApp number before launch.
+  const whatsappLink = "https://wa.me/919999999999?text=Hi%20I%20am%20interested%20in%20your%20Gera%27s%20Joy%20on%20the%20Treetops%20project%2C%20Please%20share%20details.";
+
+  // On mobile, the hero's stacked content is tall enough to run under this fixed
+  // button on first paint — stay hidden until the user scrolls past the hero.
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    if (!isMobile) return;
+
+    setVisible(false);
+    const handleScroll = () => setVisible(window.scrollY > 550);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <Link
       href={whatsappLink}
       target="_blank"
       rel="noopener noreferrer"
-      className="group fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center rounded-full bg-[#25D366] shadow-lg transition-all duration-300 ease-in-out md:hover:w-40"
+      className={cn(
+        "group fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center rounded-full bg-[#25D366] shadow-lg transition-all duration-300 ease-in-out md:hover:w-40",
+        visible ? "opacity-100" : "opacity-0 pointer-events-none"
+      )}
       aria-label="Chat on WhatsApp"
     >
       <div className="flex h-14 w-14 shrink-0 items-center justify-center">

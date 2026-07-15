@@ -17,16 +17,14 @@ export default function ContactInfoContent() {
           <h1 className="font-headline text-3xl sm:text-4xl font-bold text-primary mb-8">Contact Information</h1>
           <div className="space-y-6 text-foreground/90 leading-relaxed text-sm sm:text-base">
 
-            <p>Get in touch with us for any enquiries about <span className="font-semibold text-primary">Godrej Kukatpally, Hyderabad</span>.</p>
+            <p>Get in touch with us for any enquiries about <span className="font-semibold text-primary">Gera's Joy on the Treetops, Hinjewadi, Pune</span>.</p>
 
-            <div className="mt-8">
-              <a href="mailto:info@propmission.com" className="text-base text-primary underline hover:text-custom-gold transition-colors">
-                info@propmission.com
-              </a>
+            <div className="mt-8 italic text-foreground/60">
+              [Contact details pending client input — see Open Questions in docs/progress.md]
             </div>
 
             <p className="mt-8 text-foreground/60 text-sm">
-              Prop Mission Private Limited — Authorized Channel Partner of Godrej Properties
+              Fusion Ace — Authorized Channel Partner of Gera Developments
             </p>
 
           </div>

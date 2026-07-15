@@ -2,6 +2,7 @@
 "use client";
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { EnquireNowPopup } from '@/components/home/enquire-now-popup';
@@ -18,26 +19,35 @@ export default function PrivacyPolicyContent() {
           <h1 className="font-headline text-3xl sm:text-4xl font-bold text-primary mb-8 text-center">Privacy Policy</h1>
           <div className="space-y-6 text-foreground/90 leading-relaxed text-sm sm:text-base">
 
-            <p>This Privacy Policy outlines how Prop Mission Private Limited collects, uses, and protects your personal information when you interact with this website.</p>
+            <p>This Privacy Policy explains how information is collected, used, and protected when you interact with this website.</p>
 
-            <h2 className="font-semibold text-xl text-primary mt-8 mb-3">1. Introduction</h2>
-            <p>Prop Mission Private Limited, an authorized channel partner, respects your privacy. This policy explains how we handle your data on our website for users globally, including India, Singapore, Australia, UK, and USA.</p>
+            <h2 className="font-semibold text-xl text-primary mt-8 mb-3">Information We Collect</h2>
+            <p>We may collect personal information such as name, phone number, email address, and any details submitted through enquiry forms or communication channels.</p>
 
-            <h2 className="font-semibold text-xl text-primary mt-8 mb-3">2. Information Collection &amp; Consent</h2>
-            <p>We collect your name, email, and phone number only when you voluntarily submit an Enquiry or EOI. We use Google Consent Mode v2 to manage your tracking preferences. Tracking only occurs if you provide consent via our cookie banner.</p>
+            <h2 className="font-semibold text-xl text-primary mt-8 mb-3">How We Use Information</h2>
+            <p>The information collected is used to respond to enquiries, provide project updates, improve user experience, and share relevant communication related to the project.</p>
 
-            <h2 className="font-semibold text-xl text-primary mt-8 mb-3">3. International Data Transfers (NRI Disclosure)</h2>
-            <p>By submitting an enquiry, NRI users acknowledge that their data will be transferred to and processed in India. We maintain strict security protocols to protect your information according to international standards.</p>
+            <h2 className="font-semibold text-xl text-primary mt-8 mb-3">Cookies &amp; Analytics</h2>
+            <p>This website may use cookies and third-party analytics tools to understand user behaviour, improve performance and enhance the browsing experience.</p>
 
-            <h2 className="font-semibold text-xl text-primary mt-8 mb-3">4. Data Protection Officer</h2>
-            <p>For any data access, correction, or deletion requests, please contact us at{' '}
-              <a href="mailto:info@propmission.com" className="text-primary underline hover:text-custom-gold transition-colors">
-                info@propmission.com
-              </a>
+            <h2 className="font-semibold text-xl text-primary mt-8 mb-3">Data Protection</h2>
+            <p>We take reasonable steps to safeguard your personal information and prevent unauthorized access, misuse or disclosure.</p>
+
+            <h2 className="font-semibold text-xl text-primary mt-8 mb-3">Third-Party Services</h2>
+            <p>The website may integrate third-party tools such as CRM platforms, marketing services or analytics providers. These services operate under their own privacy policies.</p>
+
+            <h2 className="font-semibold text-xl text-primary mt-8 mb-3">User Consent</h2>
+            <p>By submitting your information on this website, you consent to the collection and use of data in accordance with this policy.</p>
+
+            <h2 className="font-semibold text-xl text-primary mt-8 mb-3">Policy Updates</h2>
+            <p>This Privacy Policy may be updated from time to time without prior notice. Users are encouraged to review this page periodically.</p>
+
+            <h2 className="font-semibold text-xl text-primary mt-8 mb-3">Contact</h2>
+            <p>For privacy-related queries, please contact the official sales team through the{' '}
+              <Link href="/contact-info" className="text-primary underline hover:text-custom-gold transition-colors">
+                contact details provided on this website
+              </Link>.
             </p>
-
-            <h2 className="font-semibold text-xl text-primary mt-8 mb-3">5. Company Identity</h2>
-            <p>Prop Mission Private Limited (Authorized Channel Partner)</p>
 
           </div>
         </div>

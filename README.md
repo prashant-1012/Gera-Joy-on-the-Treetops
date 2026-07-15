@@ -1,22 +1,24 @@
-# Godrej Kukatpally, Hyderabad — Real Estate Landing Page
+# Gera's Joy on the Treetops — Real Estate Landing Page
 
-A high-conversion real estate landing page for **Godrej Kukatpally**, a pre-launch luxury residential project in Kukatpally, Hyderabad. Built and managed by **Prop Mission Private Limited**, an authorized channel partner of Godrej Properties.
+A high-conversion real estate landing page for **Gera's Joy on the Treetops**, a premium
+2 & 3 BHK apartment and duplex project at Hinjewadi, Pune. Built and managed by
+**Fusion Ace**, an authorized channel partner of Gera Developments.
 
 ## Live Preview
 
-[godrej-kukatpally-hyderabad-gamma.vercel.app](https://godrej-kukatpally-hyderabad-gamma.vercel.app/)
+_TBD — update once this repo has its own deployment._
 
 ---
 
 ## Project
 
-**Godrej Kukatpally** — Brooklyn-Inspired Sky Residences in Kukatpally, Hyderabad.
+**Gera's Joy on the Treetops** — Hinjewadi, Pune.
 
-- Premium 3 & 4 BHK homes starting from ₹2.11 Cr\*
-- 7.8 Acres | 4B+G+45 Storey | 2 Iconic Towers
-- 72,000 Sq. Ft. Grand Clubhouse | 75% Open Green Spaces
-- Near Metro, Nexus Mall & HITEC City
-- Possession: December 2030\*
+- Premium 2 & 3 BHK homes and duplexes starting from ₹79.90 Lacs\*
+- 10.7 Acres | Possession: December 2028
+- 35,000+ Sq. Ft. Grand Clubhouse | 9 Celebrity-led Learning Academies
+- Near Hinjewadi IT Park & Upcoming Metro
+- RERA: P52100077635 & PR1261012501648
 
 ---
 
@@ -25,10 +27,10 @@ A high-conversion real estate landing page for **Godrej Kukatpally**, a pre-laun
 - Auto-slideshow hero with 2 background images and fade transitions
 - Lead capture popup with country code selector, configuration dropdown, and consent checkbox
 - Floor plan section with blur-gated images (click to enquire)
-- Amenities section with image cards and gradient fallbacks
+- Amenities carousel covering all 9 amenities
 - Gallery as a sliding carousel with lightbox, keyboard navigation, and thumbnail strip
 - Location advantage section with map and tabbed proximity data side-by-side (connectivity, schools, hospitals, malls, business hubs)
-- About Godrej Properties section with legacy stats
+- About Gera Developments section with legacy stats
 - Fully responsive across mobile, tablet, and desktop
 - SEO-optimized meta title and description
 
@@ -61,7 +63,7 @@ src/
       amenities-section.tsx
       location-tabs-section.tsx  # Tabbed location data
       gallery-section.tsx        # Lightbox gallery
-      about-section.tsx          # Godrej Properties info
+      about-section.tsx          # Gera Developments info
       enquire-now-popup.tsx      # Lead capture form
     layout/
       header.tsx
@@ -87,13 +89,13 @@ All images live in `public/images/`:
 | `hero-bg-1.png` | Hero slideshow slide 1 |
 | `hero-bg-2.png` | Hero slideshow slide 2 |
 | `overview-building.png` | Project overview section |
-| `floorplan-3bhk-premium.png` | Floor plan card (blurred) |
-| `floorplan-3bhk-luxe.png` | Floor plan card (blurred) |
-| `floorplan-4bhk-maid.png` | Floor plan card (blurred) |
-| `amenity-gym.png` | Amenities section |
-| `amenity-pool.png` | Amenities section |
-| `amenity-play-area.png` | Amenities section |
-| `gallery-1.png` … `gallery-6.png` | Gallery grid + lightbox |
+| `floorplan-2bhk.png` | Floor plan card (blurred) |
+| `floorplan-3bhk.png` | Floor plan card (blurred) |
+| `floorplan-2bhk-duplex.png` | Floor plan card (blurred) |
+| `floorplan-3bhk-duplex.png` | Floor plan card (blurred) |
+| `amenity-coworking.png`, `amenity-gym.png`, `amenity-minitheatre.png`, `amenity-play-area.png`, `amenity-gokart-track.png`, `amenity-bowling.png`, `amenity-badminton.png`, `amenity-squash.png`, `amenity-music-art.png` | Amenities carousel |
+| `gallery-1.png` … `gallery-4.png` | Gallery carousel + lightbox |
+| `rera-qr-codes.png` | RERA QR codes (unused — no component references it yet) |
 
 ---
 
@@ -109,7 +111,12 @@ npm run build     # Production build
 
 ## Pending
 
-- Replace Google Maps embed `src` in `src/components/home/location-tabs-section.tsx` with the actual property embed URL
-- Add RERA registration number once available
+- Fusion Ace's own RERA ID is blank in the disclaimer — needed before launch
+- Fusion Ace's real contact details (email/phone/address) — `about-us`/`contact-info` pages
+  currently show a placeholder pending client input
+- WhatsApp button (`common/whatsapp-button.tsx`) still uses a placeholder phone number
+  (`9999999999`)
+- Google Maps embed in `location-tabs-section.tsx` uses a generic area search, not a precise
+  pinned address — swap in the exact embed string from Google Maps if needed
 - Move credentials in `src/config/site.ts` to environment variables
-- Google Sheets columns: add `configuration` and `consent` fields when ready
+- Set up a deployment for this repo and update the Live Preview link above

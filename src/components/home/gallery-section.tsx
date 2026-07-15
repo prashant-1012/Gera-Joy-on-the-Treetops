@@ -14,12 +14,10 @@ import {
 } from '@/components/ui/carousel';
 
 const galleryImages = [
-  { src: '/images/gallery-1.png', alt: 'Godrej Kukatpally — Tower Render' },
-  { src: '/images/gallery-2.png', alt: 'Godrej Kukatpally — Aerial View with Pool' },
-  { src: '/images/gallery-3.png', alt: 'Godrej Kukatpally — Bedroom Interior' },
-  { src: '/images/gallery-4.png', alt: 'Godrej Kukatpally — Living Room' },
-  { src: '/images/gallery-5.png', alt: 'Godrej Kukatpally — Clubhouse Interior' },
-  { src: '/images/gallery-6.png', alt: 'Godrej Kukatpally — Lounge Interior' },
+  { src: '/images/gallery-1.png', alt: "Gera's Joy on the Treetops — Daytime Aerial Render" },
+  { src: '/images/gallery-2.png', alt: "Gera's Joy on the Treetops — Night Render with Plaza" },
+  { src: '/images/gallery-3.png', alt: "Gera's Joy on the Treetops — Sunset View with Go-Kart Track" },
+  { src: '/images/gallery-4.png', alt: "Gera's Joy on the Treetops — Aerial View of Go-Kart & Amenity Zone" },
 ];
 
 export function GallerySection() {
@@ -56,7 +54,7 @@ export function GallerySection() {
 
         {/* Heading */}
         <h2 className="font-headline text-3xl sm:text-4xl font-bold text-primary text-center mb-3 animate-in fade-in slide-in-from-bottom-6 duration-500 ease-out">
-          Godrej Kukatpally Project — Gallery
+          Gera's Joy On The Treetops Photos
         </h2>
         <div className="h-1 w-20 bg-custom-gold mx-auto mb-12 animate-in fade-in slide-in-from-bottom-6 duration-500 ease-out delay-100" />
 
@@ -82,6 +80,7 @@ export function GallerySection() {
                     src={img.src}
                     alt={img.alt}
                     fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   {/* Hover overlay */}
@@ -116,6 +115,7 @@ export function GallerySection() {
                 src={galleryImages[lightboxIndex].src}
                 alt={galleryImages[lightboxIndex].alt}
                 fill
+                sizes="95vw"
                 className="object-contain"
                 priority
               />
@@ -172,7 +172,7 @@ export function GallerySection() {
                 }`}
                 aria-label={`Go to image ${index + 1}`}
               >
-                <Image src={img.src} alt={img.alt} fill className="object-cover" />
+                <Image src={img.src} alt={img.alt} fill sizes="64px" className="object-cover" />
               </button>
             ))}
           </div>
