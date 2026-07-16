@@ -148,7 +148,7 @@ export function EnquireNowPopup({ isOpen, onOpenChange }: EnquireNowPopupProps) 
               />
             </div>
 
-            <DialogHeader className="text-center mb-5">
+            <DialogHeader className="text-center sm:text-center mb-5">
               <DialogTitle className="text-xl sm:text-2xl font-bold text-custom-gold">Book Your Site Visit</DialogTitle>
               <div className="w-12 h-0.5 bg-custom-gold mx-auto mt-1" />
             </DialogHeader>
