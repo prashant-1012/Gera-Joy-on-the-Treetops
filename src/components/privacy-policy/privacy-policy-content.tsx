@@ -2,7 +2,6 @@
 "use client";
 
 import { useState } from 'react';
-import Link from 'next/link';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { EnquireNowPopup } from '@/components/home/enquire-now-popup';
@@ -43,11 +42,7 @@ export default function PrivacyPolicyContent() {
             <p>This Privacy Policy may be updated from time to time without prior notice. Users are encouraged to review this page periodically.</p>
 
             <h2 className="font-semibold text-xl text-primary mt-8 mb-3">Contact</h2>
-            <p>For privacy-related queries, please contact the official sales team through the{' '}
-              <Link href="/contact-info" className="text-primary underline hover:text-custom-gold transition-colors">
-                contact details provided on this website
-              </Link>.
-            </p>
+            <p>For privacy-related queries, please contact the official sales team through the contact details provided on this website.</p>
 
           </div>
         </div>

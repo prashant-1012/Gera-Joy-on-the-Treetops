@@ -25,16 +25,29 @@ export function Footer() {
         <div className="mb-6 text-xs text-primary-foreground/75 max-w-3xl mx-auto leading-relaxed">
           <p>
             <span className="font-semibold text-primary-foreground">Disclaimer:</span> This is an informational website owned and managed by{' '}
-            <span className="font-semibold text-primary-foreground">Fusion Ace</span>, an authorized channel partner registered under RERA ID: [TBD]. This is not the official website of the developer. All images, floor plans, and project details are for representational purposes only and may be subject to change. All trademarks and project information belong to their respective owners.
+            <span className="font-semibold text-primary-foreground">Fusion Ace</span>, an authorized marketing partner of an authorized channel partner registered under RERA ID: A51700015804. This is not the official website of the developer. All images, floor plans, and project details are for representational purposes only and may be subject to change. All trademarks and project information belong to their respective owners.
           </p>
         </div>
 
         {/* RERA Info */}
         <div className="mb-6 text-xs text-primary-foreground/75 font-semibold space-y-1.5">
-          <p>RERA No: Coming Soon &nbsp;|&nbsp; Project MahaRERA No. – P52100077635 &amp; PR1261012501648</p>
+          <p>RERA No: A51700015804 &nbsp;|&nbsp; Project MahaRERA No. – P52100077635 &amp; PR1261012501648</p>
           <p>
             <span className="text-custom-gold">https://maharera.maharashtra.gov.in</span>
           </p>
+        </div>
+
+        {/* RERA QR Codes */}
+        <div className="mb-6 flex justify-center">
+          <div className="bg-white rounded-md p-2 inline-block">
+            <Image
+              src="/images/rera-qr-codes.png"
+              alt="MahaRERA QR codes for Project MahaRERA No. P52100077635 and PR1261012501648"
+              width={259}
+              height={136}
+              className="object-contain w-[200px] h-auto"
+            />
+          </div>
         </div>
 
         {/* Footer Links */}

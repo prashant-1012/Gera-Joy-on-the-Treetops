@@ -146,9 +146,6 @@ export function EnquireNowPopup({ isOpen, onOpenChange }: EnquireNowPopupProps) 
                 height={73}
                 className="object-contain"
               />
-              <p className="text-xs text-muted-foreground mt-2 text-center">
-                Presented by <span className="font-semibold text-foreground">Fusion Ace</span> – Authorized Channel Partner of Gera Developments
-              </p>
             </div>
 
             <DialogHeader className="text-center mb-5">
