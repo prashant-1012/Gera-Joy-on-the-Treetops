@@ -35,7 +35,7 @@ export default function Home() {
     if (!initialPopupTriggered && !showEnquirePopup) {
       initialDelayTimerRef.current = setTimeout(() => {
         triggerPopup();
-      }, 3000);
+      }, 10000);
     }
     return () => {
       if (initialDelayTimerRef.current) {

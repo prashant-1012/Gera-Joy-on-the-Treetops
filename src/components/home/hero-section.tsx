@@ -123,16 +123,16 @@ export function HeroSection({ onOpenEnquirePopup }: HeroSectionProps) {
       </div>
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent md:bg-black/50 z-10" />
+      <div className="absolute inset-0 bg-black/65 md:bg-black/50 z-10" />
 
       {/* Content */}
       <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center md:justify-between w-full gap-8">
         {/* Left: Hero Text */}
         <div className="md:w-1/2 lg:w-3/5 flex flex-col justify-center text-center md:text-left order-2 md:order-1 mt-10 md:mt-0 animate-in fade-in duration-700 ease-out">
-          <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 animate-in fade-in slide-in-from-bottom-10 duration-700 ease-out" style={{ textShadow: '0px 2px 4px rgba(0,0,0,0.7)' }}>
+          <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 animate-in fade-in slide-in-from-bottom-10 duration-700 ease-out [text-shadow:0_2px_4px_rgba(0,0,0,0.9),0_0_12px_rgba(0,0,0,0.8),0_4px_20px_rgba(0,0,0,0.6)] md:[text-shadow:0px_2px_4px_rgba(0,0,0,0.7)]">
             Your Kids Grow Up Once. Give Them the Finest Child-Centric Homes.
           </h1>
-          <p className="font-body text-lg sm:text-xl md:text-2xl max-w-xl lg:max-w-2xl mb-8 sm:mb-10 mx-auto md:mx-0 animate-in fade-in slide-in-from-bottom-10 duration-700 ease-out delay-150" style={{ textShadow: '0px 2px 4px rgba(0,0,0,0.7)' }}>
+          <p className="font-body text-lg sm:text-xl md:text-2xl max-w-xl lg:max-w-2xl mb-8 sm:mb-10 mx-auto md:mx-0 animate-in fade-in slide-in-from-bottom-10 duration-700 ease-out delay-150 [text-shadow:0_2px_4px_rgba(0,0,0,0.9),0_0_12px_rgba(0,0,0,0.8),0_4px_20px_rgba(0,0,0,0.6)] md:[text-shadow:0px_2px_4px_rgba(0,0,0,0.7)]">
             Launching Gera's Joy on the Treetops at Hinjewadi, Pune. Premium 2 & 3 BHK apartments and duplexes featuring an on-site electric go-kart racing track and 9 celebrity-led sports & arts academies.
           </p>
         </div>
