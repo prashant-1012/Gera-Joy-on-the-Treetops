@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -48,6 +49,7 @@ export function EnquireNowPopup({ isOpen, onOpenChange }: EnquireNowPopupProps) 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [utmParams, setUtmParams] = useState<UtmParams>({utm_source: '', utm_medium: '', utm_id: ''});
   const { toast } = useToast();
+  const router = useRouter();
 
   useEffect(() => {
     setUtmParams(captureUtmParams());
@@ -84,12 +86,15 @@ export function EnquireNowPopup({ isOpen, onOpenChange }: EnquireNowPopupProps) 
     try {
       const result = await saveEnquiry(enquiryData);
       if (result.success) {
-        toast({
-          title: "Success!",
-          description: result.message,
-        });
         resetForm();
         onOpenChange(false);
+
+        const thankYouParams = new URLSearchParams();
+        if (utmParams.utm_source) thankYouParams.set('utm_source', utmParams.utm_source);
+        if (utmParams.utm_medium) thankYouParams.set('utm_medium', utmParams.utm_medium);
+        if (utmParams.utm_id) thankYouParams.set('utm_id', utmParams.utm_id);
+        const query = thankYouParams.toString();
+        router.push(`/thank-you${query ? `?${query}` : ''}`);
       } else {
         toast({
           title: "Submission Failed",
