@@ -10,11 +10,11 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['PT Sans', 'sans-serif'],
-        serif: ['Alegreya', 'serif'],
-        headline: ['Alegreya', 'serif'],
-        headlineSC: ['"Alegreya SC"', 'serif'],
-        body: ['PT Sans', 'sans-serif'],
+        sans: ['var(--font-pt-sans)', 'sans-serif'],
+        serif: ['var(--font-alegreya)', 'serif'],
+        headline: ['var(--font-alegreya)', 'serif'],
+        headlineSC: ['var(--font-alegreya-sc)', 'serif'],
+        body: ['var(--font-pt-sans)', 'sans-serif'],
         code: ['monospace'],
       },
       colors: {

@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  font-family: 'PT Sans', sans-serif; /* Default body font */
+  font-family: var(--font-pt-sans), sans-serif; /* Default body font */
 }
 
 @layer base {

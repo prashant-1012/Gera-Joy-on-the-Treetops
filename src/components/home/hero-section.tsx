@@ -102,8 +102,9 @@ export function HeroSection({ onOpenEnquirePopup }: HeroSectionProps) {
             alt={img.alt}
             fill
             className="object-cover"
-            quality={85}
+            quality={75}
             priority={index === 0}
+            fetchPriority={index === 0 ? 'high' : undefined}
           />
         </div>
       ))}
