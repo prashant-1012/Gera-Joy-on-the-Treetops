@@ -119,7 +119,8 @@ const saveEnquiryToSheetFlow = ai.defineFlow(
 
       sheetSaved = true;
     } catch (error) {
-      console.error('Error saving to Google Sheet:', error);
+      console.error('Google Sheets Error:');
+      console.error(error instanceof Error ? error.message : error);
     }
 
     try {
