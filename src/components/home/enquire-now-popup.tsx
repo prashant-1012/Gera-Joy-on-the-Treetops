@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,6 +12,7 @@ import { Headphones, Car, IndianRupee, CheckCircle2, Loader2 } from 'lucide-reac
 import Image from 'next/image';
 import { saveEnquiry, type SaveEnquiryInput } from '@/ai/flows/save-enquiry-flow';
 import { useToast } from "@/hooks/use-toast";
+import { captureUtmParams, type UtmParams } from '@/lib/utm';
 
 const countryCodes = [
   { code: '+91', label: '🇮🇳 +91', country: 'India' },
@@ -45,7 +46,12 @@ export function EnquireNowPopup({ isOpen, onOpenChange }: EnquireNowPopupProps) 
   const [configuration, setConfiguration] = useState('');
   const [consent, setConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [utmParams, setUtmParams] = useState<UtmParams>({utm_source: '', utm_medium: '', utm_id: ''});
   const { toast } = useToast();
+
+  useEffect(() => {
+    setUtmParams(captureUtmParams());
+  }, []);
 
   const resetForm = () => {
     setName('');
@@ -70,6 +76,9 @@ export function EnquireNowPopup({ isOpen, onOpenChange }: EnquireNowPopupProps) 
       phoneNumber: `${countryCode} ${phoneNumber}`,
       configuration: configurationLabel,
       submissionTimestamp: new Date().toISOString(),
+      utmSource: utmParams.utm_source,
+      utmMedium: utmParams.utm_medium,
+      utmId: utmParams.utm_id,
     };
 
     try {
@@ -154,6 +163,11 @@ export function EnquireNowPopup({ isOpen, onOpenChange }: EnquireNowPopupProps) 
             </DialogHeader>
 
             <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Hidden UTM fields — populated from the URL, not shown to the user */}
+              <input type="hidden" name="utm_source" value={utmParams.utm_source} readOnly />
+              <input type="hidden" name="utm_medium" value={utmParams.utm_medium} readOnly />
+              <input type="hidden" name="utm_id" value={utmParams.utm_id} readOnly />
+
               {/* Name */}
               <Input
                 type="text"

@@ -38,6 +38,9 @@ async function sendEnquiryNotificationEmail(input: SaveEnquiryInput): Promise<vo
       <p><strong>Phone:</strong> ${input.phoneNumber}</p>
       <p><strong>Configuration:</strong> ${input.configuration}</p>
       <p><strong>Submitted at:</strong> ${input.submissionTimestamp}</p>
+      <p><strong>UTM Source:</strong> ${input.utmSource || '—'}</p>
+      <p><strong>UTM Medium:</strong> ${input.utmMedium || '—'}</p>
+      <p><strong>UTM ID:</strong> ${input.utmId || '—'}</p>
     `,
   });
 }
@@ -48,6 +51,9 @@ const SaveEnquiryInputSchema = z.object({
   phoneNumber: z.string().min(10, {message: 'Phone number is required and should be at least 10 digits.'}),
   configuration: z.string().min(1, {message: 'Configuration is required.'}),
   submissionTimestamp: z.string().datetime(),
+  utmSource: z.string().optional().default(''),
+  utmMedium: z.string().optional().default(''),
+  utmId: z.string().optional().default(''),
 });
 export type SaveEnquiryInput = z.infer<typeof SaveEnquiryInputSchema>;
 
@@ -88,14 +94,17 @@ const saveEnquiryToSheetFlow = ai.defineFlow(
       const sheets = google.sheets({version: 'v4', auth});
       const range = 'Sheet1!A1'; // Appends data starting from the first empty row in Sheet1
 
-      // Prepare the row data. Order should match your sheet columns.
+      // Order must match the sheet's header row: Name, Phone, Email,
+      // Configuration, Date & Time, UTM Source, UTM Medium, UTM ID.
       const rowData = [
-        input.submissionTimestamp,
         input.name,
-        input.email,
         input.phoneNumber,
+        input.email,
         input.configuration,
-        "true", // Consent is now implicit
+        input.submissionTimestamp,
+        input.utmSource,
+        input.utmMedium,
+        input.utmId,
       ];
 
       await sheets.spreadsheets.values.append({
