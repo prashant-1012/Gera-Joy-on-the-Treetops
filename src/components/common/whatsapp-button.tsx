@@ -19,8 +19,7 @@ const WhatsAppIcon = () => (
 );
 
 export function WhatsAppButton() {
-  // NOTE: phone number is still the placeholder 9999999999 — needs Fusion Ace's real WhatsApp number before launch.
-  const whatsappLink = "https://wa.me/919999999999?text=Hi%20I%20am%20interested%20in%20your%20Gera%27s%20Joy%20on%20the%20Treetops%20project%2C%20Please%20share%20details.";
+  const whatsappLink = "https://wa.me/918308265550?text=Hi%20I%20am%20interested%20in%20your%20Gera%27s%20Joy%20on%20the%20Treetops%20project%2C%20Please%20share%20details.";
 
   // On mobile, the hero's stacked content is tall enough to run under this fixed
   // button on first paint — stay hidden until the user scrolls past the hero.

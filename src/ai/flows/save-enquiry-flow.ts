@@ -11,7 +11,37 @@
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 import {google} from 'googleapis';
+import nodemailer from 'nodemailer';
 import {siteConfig} from '@/config/site'; // Config for credentials and sheet ID
+
+async function sendEnquiryNotificationEmail(input: SaveEnquiryInput): Promise<void> {
+  const {host, port, secure, user, pass, to} = siteConfig.emailNotification;
+  if (!host || !port || !user || !pass || !to) {
+    console.warn('Email notification skipped: SMTP env vars are not fully configured.');
+    return;
+  }
+
+  const transporter = nodemailer.createTransport({
+    host,
+    port: Number(port),
+    secure,
+    auth: {user, pass},
+  });
+
+  await transporter.sendMail({
+    from: user,
+    to,
+    subject: `New Enquiry — Gera's Joy on the Treetops (${input.configuration})`,
+    html: `
+      <h2>New Site Visit Enquiry</h2>
+      <p><strong>Name:</strong> ${input.name}</p>
+      <p><strong>Email:</strong> ${input.email}</p>
+      <p><strong>Phone:</strong> ${input.phoneNumber}</p>
+      <p><strong>Configuration:</strong> ${input.configuration}</p>
+      <p><strong>Submitted at:</strong> ${input.submissionTimestamp}</p>
+    `,
+  });
+}
 
 const SaveEnquiryInputSchema = z.object({
   name: z.string().min(1, {message: 'Name is required.'}),
@@ -72,6 +102,13 @@ const saveEnquiryToSheetFlow = ai.defineFlow(
           values: [rowData],
         },
       });
+
+      try {
+        await sendEnquiryNotificationEmail(input);
+      } catch (emailError) {
+        // The lead is already saved to the Sheet, so don't fail the submission over email.
+        console.error('Error sending enquiry notification email:', emailError);
+      }
 
       return {
         success: true,
