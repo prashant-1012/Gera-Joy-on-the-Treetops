@@ -12,16 +12,12 @@ import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 import {google} from 'googleapis';
 import nodemailer from 'nodemailer';
-import {getSiteConfig} from '@/config/site'; // Config for credentials and sheet ID
+import {getGoogleSheetsConfig, getEmailNotificationConfig} from '@/config/site';
 
-async function sendEnquiryNotificationEmail(
-  input: SaveEnquiryInput,
-  emailConfig: ReturnType<typeof getSiteConfig>['emailNotification']
-): Promise<void> {
-  const {host, port, secure, user, pass, to} = emailConfig;
+async function sendEnquiryNotificationEmail(input: SaveEnquiryInput): Promise<void> {
+  const {host, port, secure, user, pass, to} = getEmailNotificationConfig();
   if (!host || !port || !user || !pass || !to) {
-    console.warn('Email notification skipped: SMTP env vars are not fully configured.');
-    return;
+    throw new Error('SMTP env vars are not fully configured.');
   }
 
   const transporter = nodemailer.createTransport({
@@ -73,19 +69,23 @@ const saveEnquiryToSheetFlow = ai.defineFlow(
     outputSchema: SaveEnquiryOutputSchema,
   },
   async (input) => {
+    // Sheets and email are independent notification channels — each is
+    // attempted regardless of whether the other is configured or succeeds.
+    let sheetSaved = false;
+    let emailSent = false;
+
     try {
-      const siteConfig = getSiteConfig();
+      const {googleSheetId, googleServiceAccountCredentials} = getGoogleSheetsConfig();
 
       const auth = new google.auth.GoogleAuth({
         credentials: {
-          client_email: siteConfig.googleServiceAccountCredentials.client_email,
-          private_key: siteConfig.googleServiceAccountCredentials.private_key.replace(/\\n/g, '\n'),
+          client_email: googleServiceAccountCredentials.client_email,
+          private_key: googleServiceAccountCredentials.private_key.replace(/\\n/g, '\n'),
         },
         scopes: ['https://www.googleapis.com/auth/spreadsheets'],
       });
 
       const sheets = google.sheets({version: 'v4', auth});
-      const spreadsheetId = siteConfig.googleSheetId;
       const range = 'Sheet1!A1'; // Appends data starting from the first empty row in Sheet1
 
       // Prepare the row data. Order should match your sheet columns.
@@ -99,7 +99,7 @@ const saveEnquiryToSheetFlow = ai.defineFlow(
       ];
 
       await sheets.spreadsheets.values.append({
-        spreadsheetId,
+        spreadsheetId: googleSheetId,
         range,
         valueInputOption: 'USER_ENTERED', // Interprets data as if user typed it
         insertDataOption: 'INSERT_ROWS', // Inserts new rows for the data
@@ -108,29 +108,28 @@ const saveEnquiryToSheetFlow = ai.defineFlow(
         },
       });
 
-      try {
-        await sendEnquiryNotificationEmail(input, siteConfig.emailNotification);
-      } catch (emailError) {
-        // The lead is already saved to the Sheet, so don't fail the submission over email.
-        console.error('Error sending enquiry notification email:', emailError);
-      }
+      sheetSaved = true;
+    } catch (error) {
+      console.error('Error saving to Google Sheet:', error);
+    }
 
+    try {
+      await sendEnquiryNotificationEmail(input);
+      emailSent = true;
+    } catch (emailError) {
+      console.error('Error sending enquiry notification email:', emailError);
+    }
+
+    if (sheetSaved || emailSent) {
       return {
         success: true,
         message: 'Enquiry saved successfully!',
       };
-    } catch (error) {
-      console.error('Error saving to Google Sheet:', error);
-      let errorMessage = 'Failed to save enquiry.';
-      if (error instanceof Error) {
-        // For security, you might not want to expose detailed error messages to the client.
-        // Log the full error on the server, but return a generic message.
-        errorMessage = `Failed to save enquiry. Please check server logs.`;
-      }
-      return {
-        success: false,
-        message: errorMessage,
-      };
     }
+
+    return {
+      success: false,
+      message: 'Failed to save enquiry. Please check server logs.',
+    };
   }
 );
