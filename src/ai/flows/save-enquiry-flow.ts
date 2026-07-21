@@ -86,7 +86,7 @@ const saveEnquiryToSheetFlow = ai.defineFlow(
       const auth = new google.auth.GoogleAuth({
         credentials: {
           client_email: googleServiceAccountCredentials.client_email,
-          private_key: googleServiceAccountCredentials.private_key.replace(/\\n/g, '\n'),
+          private_key: googleServiceAccountCredentials.private_key,
         },
         scopes: ['https://www.googleapis.com/auth/spreadsheets'],
       });
