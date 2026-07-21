@@ -110,7 +110,7 @@ const saveEnquiryToSheetFlow = ai.defineFlow(
       await sheets.spreadsheets.values.append({
         spreadsheetId: googleSheetId,
         range,
-        valueInputOption: 'USER_ENTERED', // Interprets data as if user typed it
+        valueInputOption: 'RAW', // Store values as literal text — USER_ENTERED parses a leading "+" (e.g. phone numbers) as a formula
         insertDataOption: 'INSERT_ROWS', // Inserts new rows for the data
         requestBody: {
           values: [rowData],
