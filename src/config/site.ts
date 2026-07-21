@@ -10,20 +10,26 @@ function requireEnv(name: string): string {
   return value;
 }
 
-export const siteConfig = {
-  googleSheetId: requireEnv('GOOGLE_SHEET_ID'),
-  googleServiceAccountCredentials: {
-    client_email: requireEnv('GOOGLE_SERVICE_ACCOUNT_EMAIL'),
-    private_key: requireEnv('GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY'),
-  },
-  // Optional: enquiry notification email. If any SMTP var is missing, email
-  // sending is skipped (Sheets remains the source of truth for leads).
-  emailNotification: {
-    host: process.env.EMAIL_SMTP_HOST,
-    port: process.env.EMAIL_SMTP_PORT,
-    secure: process.env.EMAIL_SMTP_SECURE === 'true',
-    user: process.env.EMAIL_SMTP_USER,
-    pass: process.env.EMAIL_SMTP_PASS,
-    to: process.env.ENQUIRY_NOTIFICATION_EMAIL,
-  },
-};
+// A function, not a top-level object: the Sheets credentials are required only
+// once someone actually submits the enquiry form, and evaluating requireEnv()
+// there (inside the flow's try/catch) lets a missing var fail gracefully
+// instead of crashing the server action with an unhandled module-load error.
+export function getSiteConfig() {
+  return {
+    googleSheetId: requireEnv('GOOGLE_SHEET_ID'),
+    googleServiceAccountCredentials: {
+      client_email: requireEnv('GOOGLE_SERVICE_ACCOUNT_EMAIL'),
+      private_key: requireEnv('GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY'),
+    },
+    // Optional: enquiry notification email. If any SMTP var is missing, email
+    // sending is skipped (Sheets remains the source of truth for leads).
+    emailNotification: {
+      host: process.env.EMAIL_SMTP_HOST,
+      port: process.env.EMAIL_SMTP_PORT,
+      secure: process.env.EMAIL_SMTP_SECURE === 'true',
+      user: process.env.EMAIL_SMTP_USER,
+      pass: process.env.EMAIL_SMTP_PASS,
+      to: process.env.ENQUIRY_NOTIFICATION_EMAIL,
+    },
+  };
+}

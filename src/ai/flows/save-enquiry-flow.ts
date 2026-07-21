@@ -12,10 +12,13 @@ import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 import {google} from 'googleapis';
 import nodemailer from 'nodemailer';
-import {siteConfig} from '@/config/site'; // Config for credentials and sheet ID
+import {getSiteConfig} from '@/config/site'; // Config for credentials and sheet ID
 
-async function sendEnquiryNotificationEmail(input: SaveEnquiryInput): Promise<void> {
-  const {host, port, secure, user, pass, to} = siteConfig.emailNotification;
+async function sendEnquiryNotificationEmail(
+  input: SaveEnquiryInput,
+  emailConfig: ReturnType<typeof getSiteConfig>['emailNotification']
+): Promise<void> {
+  const {host, port, secure, user, pass, to} = emailConfig;
   if (!host || !port || !user || !pass || !to) {
     console.warn('Email notification skipped: SMTP env vars are not fully configured.');
     return;
@@ -71,6 +74,8 @@ const saveEnquiryToSheetFlow = ai.defineFlow(
   },
   async (input) => {
     try {
+      const siteConfig = getSiteConfig();
+
       const auth = new google.auth.GoogleAuth({
         credentials: {
           client_email: siteConfig.googleServiceAccountCredentials.client_email,
@@ -104,7 +109,7 @@ const saveEnquiryToSheetFlow = ai.defineFlow(
       });
 
       try {
-        await sendEnquiryNotificationEmail(input);
+        await sendEnquiryNotificationEmail(input, siteConfig.emailNotification);
       } catch (emailError) {
         // The lead is already saved to the Sheet, so don't fail the submission over email.
         console.error('Error sending enquiry notification email:', emailError);
