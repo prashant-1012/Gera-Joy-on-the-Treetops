@@ -28,7 +28,7 @@ async function sendEnquiryNotificationEmail(input: SaveEnquiryInput): Promise<vo
   });
 
   await transporter.sendMail({
-    from: user,
+    from: {name: "Gera's Joy on the Treetops", address: user},
     to,
     subject: `New Enquiry — Gera's Joy on the Treetops (${input.configuration})`,
     html: `
