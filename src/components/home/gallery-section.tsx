@@ -117,7 +117,6 @@ export function GallerySection() {
                 fill
                 sizes="95vw"
                 className="object-contain"
-                priority
               />
             )}
 

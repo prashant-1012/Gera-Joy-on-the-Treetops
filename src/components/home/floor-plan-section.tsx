@@ -73,6 +73,7 @@ export function FloorPlanSection({ onOpenEnquirePopup }: FloorPlanSectionProps) 
                     alt={plan.alt}
                     fill
                     sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                    quality={35}
                     className="object-cover scale-110 blur-sm transition-all duration-300 group-hover:blur-md"
                   />
                   {/* Overlay */}
