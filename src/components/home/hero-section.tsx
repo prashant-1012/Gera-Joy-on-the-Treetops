@@ -110,7 +110,7 @@ export function HeroSection({ onOpenEnquirePopup }: HeroSectionProps) {
               fill
               sizes="100vw"
               className="object-cover"
-              quality={75}
+              quality={45}
               priority={index === 0}
               fetchPriority={index === 0 ? 'high' : undefined}
             />

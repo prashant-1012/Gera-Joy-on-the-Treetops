@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
     turbopackFileSystemCacheForDev: false,
   },
   images: {
-    qualities: [35, 75],
+    qualities: [35, 45, 75],
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
