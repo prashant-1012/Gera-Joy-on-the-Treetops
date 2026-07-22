@@ -6,8 +6,8 @@ import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
 
 const heroImages = [
-  { src: '/images/hero-bg-1.png', alt: "Gera's Joy on the Treetops daytime aerial render" },
-  { src: '/images/hero-bg-2.png', alt: "Gera's Joy on the Treetops night render with towers lit up" },
+  { src: '/images/hero-bg-1.webp', alt: "Gera's Joy on the Treetops daytime aerial render" },
+  { src: '/images/hero-bg-2.webp', alt: "Gera's Joy on the Treetops night render with towers lit up" },
 ];
 
 interface InfoCardProps {
@@ -75,12 +75,18 @@ interface HeroSectionProps {
 
 export function HeroSection({ onOpenEnquirePopup }: HeroSectionProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [nextSlidesReady, setNextSlidesReady] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide(prev => (prev + 1) % heroImages.length);
     }, 5000);
     return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setNextSlidesReady(true), 2000);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -90,23 +96,26 @@ export function HeroSection({ onOpenEnquirePopup }: HeroSectionProps) {
     >
       {/* Background image slideshow */}
       {heroImages.map((img, index) => (
-        <div
-          key={img.src}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            index === currentSlide ? 'opacity-100' : 'opacity-0'
-          }`}
-          style={{ zIndex: 0 }}
-        >
-          <Image
-            src={img.src}
-            alt={img.alt}
-            fill
-            className="object-cover"
-            quality={75}
-            priority={index === 0}
-            fetchPriority={index === 0 ? 'high' : undefined}
-          />
-        </div>
+        (index === 0 || nextSlidesReady) && (
+          <div
+            key={img.src}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+            style={{ zIndex: 0 }}
+          >
+            <Image
+              src={img.src}
+              alt={img.alt}
+              fill
+              sizes="100vw"
+              className="object-cover"
+              quality={75}
+              priority={index === 0}
+              fetchPriority={index === 0 ? 'high' : undefined}
+            />
+          </div>
+        )
       ))}
 
       {/* Slide indicators */}

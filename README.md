@@ -86,8 +86,8 @@ All images live in `public/images/`:
 | File | Usage |
 |------|-------|
 | `logo.png` | Header & footer |
-| `hero-bg-1.png` | Hero slideshow slide 1 |
-| `hero-bg-2.png` | Hero slideshow slide 2 |
+| `hero-bg-1.webp` | Hero slideshow slide 1 |
+| `hero-bg-2.webp` | Hero slideshow slide 2 |
 | `overview-building.png` | Project overview section |
 | `floorplan-2bhk.png` | Floor plan card (blurred) |
 | `floorplan-3bhk.png` | Floor plan card (blurred) |
