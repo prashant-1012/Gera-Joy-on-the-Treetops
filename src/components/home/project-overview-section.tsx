@@ -68,7 +68,7 @@ export function ProjectOverviewSection({ onOpenEnquirePopup }: ProjectOverviewSe
           <div className="relative order-first md:order-last mt-0 md:mt-4 animate-in fade-in slide-in-from-right-10 duration-700 ease-out delay-150">
             <div className="relative rounded-l-xl rounded-r-[60px] overflow-hidden shadow-xl aspect-[4/3]">
               <Image
-                src="/images/overview-building.png"
+                src="/images/overview-building.webp"
                 alt="Gera's Joy on the Treetops — ground-level render with go-kart track, Artist's Impression"
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"

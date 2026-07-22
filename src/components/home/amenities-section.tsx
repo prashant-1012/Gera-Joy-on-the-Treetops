@@ -20,47 +20,47 @@ const amenities: Amenity[] = [
   {
     id: '1',
     name: 'Co-Working Space',
-    imageSrc: '/images/amenity-coworking.png',
+    imageSrc: '/images/amenity-coworking.webp',
   },
   {
     id: '2',
     name: 'Gym',
-    imageSrc: '/images/amenity-gym.png',
+    imageSrc: '/images/amenity-gym.webp',
   },
   {
     id: '3',
     name: 'Mini Theatre',
-    imageSrc: '/images/amenity-minitheatre.png',
+    imageSrc: '/images/amenity-minitheatre.webp',
   },
   {
     id: '4',
     name: "Children's Play Area",
-    imageSrc: '/images/amenity-play-area.png',
+    imageSrc: '/images/amenity-play-area.webp',
   },
   {
     id: '5',
     name: 'Electric Go-Kart Racing Track',
-    imageSrc: '/images/amenity-gokart-track.png',
+    imageSrc: '/images/amenity-gokart-track.webp',
   },
   {
     id: '6',
     name: 'Bowling Alley',
-    imageSrc: '/images/amenity-bowling.png',
+    imageSrc: '/images/amenity-bowling.webp',
   },
   {
     id: '7',
     name: 'Indoor Badminton Court',
-    imageSrc: '/images/amenity-badminton.png',
+    imageSrc: '/images/amenity-badminton.webp',
   },
   {
     id: '8',
     name: 'Squash Court',
-    imageSrc: '/images/amenity-squash.png',
+    imageSrc: '/images/amenity-squash.webp',
   },
   {
     id: '9',
     name: 'Music & Art Room',
-    imageSrc: '/images/amenity-music-art.png',
+    imageSrc: '/images/amenity-music-art.webp',
   },
 ];
 

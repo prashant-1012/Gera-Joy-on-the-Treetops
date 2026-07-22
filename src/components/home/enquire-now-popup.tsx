@@ -154,7 +154,7 @@ export function EnquireNowPopup({ isOpen, onOpenChange }: EnquireNowPopupProps) 
             {/* Logo & partner text */}
             <div className="flex flex-col items-center mb-4">
               <Image
-                src="/images/logo.png"
+                src="/images/logo.webp"
                 alt="Gera's Joy on the Treetops Logo"
                 width={180}
                 height={73}

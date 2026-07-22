@@ -71,7 +71,7 @@ export function Header({ onOpenEnquirePopup }: HeaderProps) {
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0" onClick={() => handleNavLinkClick('Overview')}>
             <Image
-              src="/images/logo.png"
+              src="/images/logo.webp"
               alt="Gera's Joy on the Treetops Logo"
               width={109}
               height={44}

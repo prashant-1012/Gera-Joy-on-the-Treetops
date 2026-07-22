@@ -14,10 +14,10 @@ import {
 } from '@/components/ui/carousel';
 
 const galleryImages = [
-  { src: '/images/gallery-1.png', alt: "Gera's Joy on the Treetops — Daytime Aerial Render" },
-  { src: '/images/gallery-2.png', alt: "Gera's Joy on the Treetops — Night Render with Plaza" },
-  { src: '/images/gallery-3.png', alt: "Gera's Joy on the Treetops — Sunset View with Go-Kart Track" },
-  { src: '/images/gallery-4.png', alt: "Gera's Joy on the Treetops — Aerial View of Go-Kart & Amenity Zone" },
+  { src: '/images/gallery-1.webp', alt: "Gera's Joy on the Treetops — Daytime Aerial Render" },
+  { src: '/images/gallery-2.webp', alt: "Gera's Joy on the Treetops — Night Render with Plaza" },
+  { src: '/images/gallery-3.webp', alt: "Gera's Joy on the Treetops — Sunset View with Go-Kart Track" },
+  { src: '/images/gallery-4.webp', alt: "Gera's Joy on the Treetops — Aerial View of Go-Kart & Amenity Zone" },
 ];
 
 export function GallerySection() {

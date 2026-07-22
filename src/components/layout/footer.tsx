@@ -10,7 +10,7 @@ export function Footer() {
         {/* Logo */}
         <div className="flex justify-center items-center mb-6">
           <Image
-            src="/images/logo.png"
+            src="/images/logo.webp"
             alt="Gera's Joy on the Treetops Logo"
             width={160}
             height={65}
@@ -41,7 +41,7 @@ export function Footer() {
         <div className="mb-6 flex justify-center">
           <div className="bg-white rounded-md p-2 inline-block">
             <Image
-              src="/images/rera-qr-codes.png"
+              src="/images/rera-qr-codes.webp"
               alt="MahaRERA QR codes for Project MahaRERA No. P52100077635 and PR1261012501648"
               width={259}
               height={136}
