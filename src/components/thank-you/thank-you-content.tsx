@@ -13,6 +13,7 @@ export default function ThankYouContent() {
   const [showEnquirePopup, setShowEnquirePopup] = useState(false);
   const openEnquirePopup = () => setShowEnquirePopup(true);
   
+  
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header onOpenEnquirePopup={openEnquirePopup} />
